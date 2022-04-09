@@ -1,40 +1,44 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
+import GlobalContext from '../Contexts/GlobalContext';
 
 export default function Day({day,hoursArray,minutesArray}){
 
-    const [showButton ,setShowButton] = useState(false);
+    const {resetworkingHours,setResetworkingHours} =useContext(GlobalContext)
+    
+    // const [showButton ,setShowButton] = useState(false);
     const [resultTime,setResultTime] = useState('0');
     const [startTime,setStartTime]  = useState();
     const [endTime,setEndTime]  = useState();
     const [breakTime,setBreakTime]  = useState();
 
     useEffect(()=>{
-        if(typeof(startTime) === "string" && typeof(endTime) === "string" ){setShowButton(true)}
-    },[startTime,endTime])
+      
+        if(typeof(startTime) === "string" && typeof(endTime) === "string" ){setTimDay()}
+    },[startTime,endTime,breakTime])
 
     const setTimDay =()=>{
-        if(typeof(startTime) === "string" && typeof(endTime) === "string" ){
+        
         let startHeure=Number(startTime.split(":")[0])
         let startMin=Number(startTime.split(":")[1])
         let endHeure=Number(endTime.split(":")[0])
         let endMin=Number(endTime.split(":")[1])
-        //Calcul The Time
+      
 
         let t1 = startHeure*60 + startMin
         let t2 = endHeure*60   + endMin
 
        
         if(t1 >t2){return}
-
+        let diff = t2-t1
+        
         if(typeof(breakTime) === "string"){
             let breakHeure=Number(breakTime.split(":")[0])
             let breackMin=Number(breakTime.split(":")[1])
-            let t3=breakHeure*60-breackMin
-            t1-=t3
+            let t3=breakHeure*60 + breackMin
+            if(t3>diff){diff=0}
+            else{diff = t2-(t1+t3)}
+            
         }
-
-       
-        let diff = t2-t1
         let heures= Number(Math.floor(diff / 60) %24)
         let minutes= diff % 60
 
@@ -47,10 +51,8 @@ export default function Day({day,hoursArray,minutesArray}){
         else if(String(heures).length === 1 ) {setResultTime(`0${heures} : ${minutes}`)}
         else if(String(minutes).length === 1 ) {setResultTime(`${heures} : 0${minutes}`)}
         else {setResultTime(String(heures) + ":" + String(minutes))}
-       
-      
-         
-    }}
+        
+    }
     // setTimDay()
 
     return(    
@@ -59,13 +61,7 @@ export default function Day({day,hoursArray,minutesArray}){
             <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'  type="time"   onChange={(e)=>{setStartTime(e.target.value)}}  /></td>
             <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'   type="time"   onChange={(e)=>{setEndTime(e.target.value)}} /></td>
             <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'   type="time"   onChange={(e)=>{setBreakTime(e.target.value)}} /></td>
-            <td style={{width:'20%'}}>
-                {
-                    showButton ? <button onClick={setTimDay} className="px-4 mr-2 text-xs text-white md:py-3 print:hidden bg-gradient-to-r from-green-400 to-blue-400 rounded-3xl ">Click me</button> : null
-
-                }
-                
-                {resultTime}</td>
+            <td style={{width:'20%'}}>{resultTime}</td>
         </tr>
         
     )

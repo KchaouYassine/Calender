@@ -13,6 +13,8 @@ const GlobalContext = React.createContext({
     setCompanyOrPrivate:()=>{},
     showCard:true,
     setShowCard:()=>{},
+    resetworkingHours:true,
+    setResetworkingHours:()=>{},
 
 
 })

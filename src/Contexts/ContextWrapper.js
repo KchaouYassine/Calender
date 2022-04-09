@@ -9,7 +9,7 @@ export default function ContextWrapper(props){
     const[companyOrPrivate ,setCompanyOrPrivate] =useState(false) //true for company
     const [companyName , setcompanyName ] =useState('');
     const [showCard , setShowCard] = useState(false)
-
+    const [resetworkingHours , setResetworkingHours] = useState(false)
    
     return(
         <GlobalContext.Provider value={{
@@ -18,7 +18,8 @@ export default function ContextWrapper(props){
             lastName,setLastName,
             companyName,setcompanyName,
             companyOrPrivate,setCompanyOrPrivate,
-            showCard,setShowCard
+            showCard,setShowCard,
+            resetworkingHours,setResetworkingHours
         }}>
             {props.children}
         </GlobalContext.Provider>
