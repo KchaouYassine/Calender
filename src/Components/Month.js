@@ -1,11 +1,10 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState} from 'react'
 import Day from './Day'
 import {AiOutlineFieldTime} from 'react-icons/ai'
 
 export default function Month({month}){
   
-    // const [totalHours,setTotalHours] = useState(0);
-    // const [totalMinutes,setTotalMinutes] = useState(0);
+
     const [resultTime,setResultTime] = useState('');
     const [timeOrReset ,setTimeOrReset] = useState(true);
 
@@ -33,9 +32,6 @@ export default function Month({month}){
 
         setHoursArray(hoursArray)
         setMinutesArray(minutesArray)
-        
-        // setTotalHours(hours)
-        // setTotalMinutes(minutes)
 
         setTimeOrReset(false)
        
@@ -46,14 +42,7 @@ export default function Month({month}){
         else {setResultTime(String(hours) + ":" + String(minutes))}
     }
 
-    useEffect(()=>{
-        calculFinalTime()
-        console.log(hoursArray)
-    },[hoursArray,minutesArray])
-
     const calculResetTime = ()=>{
-        // setTotalHours(0)
-        // setTotalMinutes(0)
         setResultTime("0:0")
         setTimeOrReset(true)
 

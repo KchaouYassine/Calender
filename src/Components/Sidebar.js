@@ -21,10 +21,6 @@ const Sidebar = ({handlePrint}) => {
     function closeCard(){
         setShowCard(false)
     }
-
-
-    
-
   return (
     <React.Fragment>
         {
@@ -45,12 +41,9 @@ const Sidebar = ({handlePrint}) => {
                     <button className='flex items-center justify-center h-10 px-5 py-2 m-2 text-white rounded-full md:h-16 bg-gradient-to-r from-green-400 to-blue-400'
                     onClick={changeCordinates} ref={firstButton} style={{maxWidth}} >  < MdAccountCircle className='w-6 h-6 mr-2 ' /> My account</button>
 
-                    <button className= 'flex items-center justify-center h-10 px-5 py-2 m-2 text-white rounded-full md:h-16 bg-gradient-to-r from-green-400 to-blue-400' ref={secondButton}  style={{maxWidth}} >
-                        <a
-                            className='flex items-center justify-center px-2 py-1 my-3 rounded-full'
-                            onClick={handlePrint} >
-                    
-                        <VscFilePdf className='w-6 h-6 mr-2' />  Download PDF </a> 
+                    <button className= 'flex items-center justify-center h-10 px-5 py-2 m-2 text-white rounded-full md:h-16 bg-gradient-to-r from-green-400 to-blue-400' ref={secondButton} onClick={handlePrint}   style={{maxWidth}} >
+                       
+                     <VscFilePdf className='w-6 h-6 mr-2' />  Download PDF
                     </button>
                 </div>
 
