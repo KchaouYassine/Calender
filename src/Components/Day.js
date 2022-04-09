@@ -1,11 +1,8 @@
-import React,{useState,useEffect,useContext} from 'react'
-import GlobalContext from '../Contexts/GlobalContext';
+import React,{useState,useEffect} from 'react'
+
 
 export default function Day({day,hoursArray,minutesArray}){
 
-    const {resetworkingHours,setResetworkingHours} =useContext(GlobalContext)
-    
-    // const [showButton ,setShowButton] = useState(false);
     const [resultTime,setResultTime] = useState('0');
     const [startTime,setStartTime]  = useState();
     const [endTime,setEndTime]  = useState();
@@ -13,12 +10,9 @@ export default function Day({day,hoursArray,minutesArray}){
 
     useEffect(()=>{
       
-        if(typeof(startTime) === "string" && typeof(endTime) === "string" ){setTimDay()}
-    },[startTime,endTime,breakTime])
-
-    const setTimDay =()=>{
-        
-        let startHeure=Number(startTime.split(":")[0])
+        if(typeof(startTime) === "string" && typeof(endTime) === "string" ){
+            
+            let startHeure=Number(startTime.split(":")[0])
         let startMin=Number(startTime.split(":")[1])
         let endHeure=Number(endTime.split(":")[0])
         let endMin=Number(endTime.split(":")[1])
@@ -51,9 +45,10 @@ export default function Day({day,hoursArray,minutesArray}){
         else if(String(heures).length === 1 ) {setResultTime(`0${heures} : ${minutes}`)}
         else if(String(minutes).length === 1 ) {setResultTime(`${heures} : 0${minutes}`)}
         else {setResultTime(String(heures) + ":" + String(minutes))}
-        
-    }
-    // setTimDay()
+        }
+    },[startTime,endTime,breakTime,day ,hoursArray,minutesArray])
+
+  
 
     return(    
         <tr className='p-16 text-center border-b-2 border-gray-500 md:text-bold md:text-xl'> 
