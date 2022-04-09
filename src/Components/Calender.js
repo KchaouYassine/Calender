@@ -11,9 +11,7 @@ export default function Calender(){
     useEffect(() =>{
         setCurrentMonth(GetMonth(monthIndex))
     },[monthIndex] )
-
-
-    // console.log(currentMonth)
+    
     return(
         <React.Fragment>
             <div className='flex flex-col my-4 bg-white my-y-4 rounded-3xl '>

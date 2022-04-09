@@ -16,7 +16,6 @@ function App() {
         content: () => printRef.current,
     });
   return (
-    //to be the child 
     <React.Fragment> 
       <div className ="p-5 bg-gradient-to-r from-green-400 to-blue-400">
         
