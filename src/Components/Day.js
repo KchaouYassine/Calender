@@ -48,14 +48,17 @@ export default function Day({day,hoursArray,minutesArray}){
         }
     },[startTime,endTime,breakTime,day ,hoursArray,minutesArray])
 
-    return(    
-        <tr className='p-16 text-center border-b-2 border-gray-500 md:text-bold md:text-xl'> 
-            <td className="p-2 print:text-sm " style={{width:'25%'}}>{day.format("dddd, D MMMM YYYY")}</td>
-            <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'  type="time"   onChange={(e)=>{setStartTime(e.target.value)}}  /></td>
-            <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'   type="time"   onChange={(e)=>{setEndTime(e.target.value)}} /></td>
-            <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'   type="time"   onChange={(e)=>{setBreakTime(e.target.value)}} /></td>
-            <td style={{width:'20%'}}>{resultTime}</td>
-        </tr>
+    return(   
+        <React.Fragment >
+               <tr className='p-16 text-center border-b-2 border-gray-500 md:text-bold md:text-xl'> 
+                    <td className="p-2 print:text-sm " style={{width:'25%'}}>{day.format("dddd, D MMMM YYYY")}</td>
+                    <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'  type="time"   onChange={(e)=>{setStartTime(e.target.value)}}  /></td>
+                    <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'   type="time"   onChange={(e)=>{setEndTime(e.target.value)}} /></td>
+                    <td style={{width:'18.5%'}}><input className='p-2 bg-transparent'   type="time"   onChange={(e)=>{setBreakTime(e.target.value)}} /></td>
+                    <td style={{width:'20%'}}>{resultTime}</td>
+            </tr>
         
+        </React.Fragment>
+     
     )
 }

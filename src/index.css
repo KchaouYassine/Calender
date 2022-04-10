@@ -24,16 +24,12 @@ input[type="text"]{
   border: none;
   outline: none;
 }
-
-/* thead {display: table-row-group;}}
-  tbody {margin-bottom: button 10px;} */
-
 @media print {
 
   thead {
     display: table-row-group;
-    padding-top: 20px;
   }
+
 
   /* table{
     border-collapse:collapse;

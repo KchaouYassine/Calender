@@ -73,17 +73,17 @@ export default function Month({month}){
             </div>
 
         <div className='flex items-center justify-end p-4 mr-10'>       
-            <button className='flex items-center justify-center px-5 py-1 mx-2 mr-3 font-bold text-white md:py-3 lg:text-xl print:hidden rounded-3xl bg-gradient-to-r from-green to-blue-500'
+            <button className='flex items-center justify-center px-3 py-1 mr-2 font-bold text-white md:py-3 md:mr-3 md:px-5 md:text-xl print:hidden rounded-3xl bg-gradient-to-r from-green to-blue-500'
             onClick={timeOrReset ?calculFinalTime:calculResetTime} > 
-            {timeOrReset ?<AiOutlineFieldTime className='w-8 h-8 mr-3'/>:<FiDelete className='mr-3 text-white w-7 h-7'/>}
+            {timeOrReset ?<AiOutlineFieldTime className='w-8 h-8 md:mr-3'/>:<FiDelete className='text-white md:mr-3 w-7 h-7'/>}
             {timeOrReset ?" Get total working hours":"Reset total working hours"} </button>
              {/* <button className='flex items-center justify-center px-5 py-1 mx-2 mr-3 font-bold text-white md:py-3 lg:text-xl print:hidden rounded-3xl bg-gradient-to-r from-green to-blue-500'
             onClick={calculResetTime} >  <AiOutlineFieldTime className='w-8 h-8 mr-3'/>Reset total working hours</button>
             <button className='flex items-center justify-center px-5 py-1 mx-2 mr-3 font-bold text-white md:py-3 lg:text-xl print:hidden rounded-3xl bg-gradient-to-r from-green to-blue-500'
             onClick={calculFinalTime} >  <AiOutlineFieldTime className='w-8 h-8 mr-3'/>Get total working hours</button> */}
           
-            
-            <p className='text-3xl font-bold text-blue-500 font-Kaushan' >{resultTime}</p>
+            <p className='hidden text-xl font-bold text-blue-500 md:text-3xl font-Kaushan print:block'>Total working hours &nbsp; </p>
+            <p className='text-xl font-bold text-blue-500 md:text-3xl font-Kaushan' >{resultTime}</p>
         </div>
 
         </React.Fragment>    
