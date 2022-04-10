@@ -49,7 +49,7 @@ export default function Month({month}){
         <React.Fragment >
             <div className='overflow-x-auto'>
                 <table className='w-screen bg-gray-100 '>
-                    <thead className='h-16 p-4 text-xl text-blue-400 font-Kaushan lg:text-2xl '>
+                    <thead className='h-16 p-4 text-xl text-blue-400 font-Kaushan lg:text-2xl ' >
                         <tr  >
                             <th>Date</th>
                             <th>From</th>
